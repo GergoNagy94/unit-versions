@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///cloudposse/mq-broker/aws//.?version=3.1.0"
+  source = "git.com:cloudposse/terraform-aws-mq-broker.git?ref=3.1.0"
 }
 
 include "root" {

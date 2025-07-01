@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///terraform-aws-modules/route53/aws//modules/zones/.?version=4.1.0"
+  source = "git.com:terraform-aws-modules/terraform-aws-route53.git//modules/zones?ref=v4.1.0"
 }
 
 include "root" {

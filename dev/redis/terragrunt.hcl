@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///cloudposse/elasticache-redis/aws//.?version=1.2.0"
+  source = "git.com:cloudposse/terraform-aws-elasticache-redis.git?ref=1.4.0"
 }
 
 include "root" {

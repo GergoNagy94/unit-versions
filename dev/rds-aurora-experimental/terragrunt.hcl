@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///terraform-aws-modules/rds-aurora/aws//.?version=8.3.1"
+  source = "git.com:terraform-aws-modules/terraform-aws-rds-aurora.git?ref=v9.15.0"
 }
 
 include "root" {

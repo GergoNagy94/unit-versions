@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///cloudposse/rds-cluster/aws//.?version=1.7.0"
+  source = "git.com:cloudposse/terraform-aws-rds-cluster.git?ref=1.7.0"
 }
 
 include "root" {

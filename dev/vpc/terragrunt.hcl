@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///terraform-aws-modules/vpc/aws//.?version=5.16.0"
+  source = "git.com:terraform-aws-modules/terraform-aws-vpc.git?ref=v6.0.1"
 }
 
 include "root" {

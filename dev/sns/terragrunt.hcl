@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///cloudposse/sns-topic/aws//.?version=0.21.0"
+  source = "git.com:cloudposse/terraform-aws-sns-topic.git?ref=0.21.0"
 }
 
 include "root" {

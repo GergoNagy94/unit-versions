@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///terraform-aws-modules/s3-bucket/aws////.?version=4.1.2"
+  source = "git.com:terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v6.0.1"
 
 }
 

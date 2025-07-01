@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///terraform-aws-modules/rds/aws//.?version=6.4.0"
+  source = "git.com:terraform-aws-modules/terraform-aws-rds.git?ref=v6.12.0"
 }
 
 include "root" {

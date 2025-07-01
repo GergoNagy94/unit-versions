@@ -1,5 +1,5 @@
 terraform {
-  source = "tfr:///cloudposse/helm-release/aws//.?version=0.10.1"
+  source = "git.com:cloudposse/terraform-aws-helm-release.git?ref=0.10.1"
 }
 
 include "root" {
