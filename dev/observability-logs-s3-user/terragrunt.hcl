@@ -1,5 +1,5 @@
 terraform {
-  source = "git.com:cloudposse/terraform-aws-iam-s3-user.git?ref=1.2.1"
+  source = "git@github.com:cloudposse/terraform-aws-iam-s3-user.git?ref=1.2.1"
 }
 
 include "root" {
