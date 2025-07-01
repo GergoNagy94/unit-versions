@@ -1,9 +1,9 @@
 terraform {
-  source = "git@github.com:terraform-aws-modules/terraform-aws-kms.git?ref=v3.1.1"
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-kms.git?ref=v3.1.1"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

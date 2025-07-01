@@ -1,9 +1,9 @@
 terraform {
-  source = "git@github.com:cloudposse/terraform-aws-iam-s3-user.git?ref=1.2.1"
+  source = "git::https://github.com/cloudposse/terraform-aws-iam-s3-user.git?ref=1.2.1"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

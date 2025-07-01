@@ -1,9 +1,9 @@
 terraform {
-  source = "git.com:cloudposse/terraform-aws-mq-broker.git?ref=3.1.0"
+  source = "git::https://github.com/cloudposse/terraform-aws-mq-broker.git?ref=3.1.0"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

@@ -1,9 +1,9 @@
 terraform {
-  source = "git.com:cloudposse/terraform-aws-ses.git?ref=0.25.1"
+  source = "git::https://github.com/cloudposse/terraform-aws-ses.git?ref=0.25.1"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

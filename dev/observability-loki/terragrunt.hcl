@@ -1,9 +1,9 @@
 terraform {
-  source = "git@github.com:cloudposse/terraform-aws-helm-release.git?ref=0.10.1"
+  source = "git::https://github.com/cloudposse/terraform-aws-helm-release.git?ref=0.10.1"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

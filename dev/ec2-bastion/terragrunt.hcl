@@ -1,9 +1,9 @@
 terraform {
-  source = "git@github.com:cloudposse/terraform-aws-ec2-bastion-server.git?ref=0.31.1"
+  source = "git::https://github.com/cloudposse/terraform-aws-ec2-bastion-server.git?ref=0.31.1"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

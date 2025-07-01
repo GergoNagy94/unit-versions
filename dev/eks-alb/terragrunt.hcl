@@ -1,9 +1,9 @@
 terraform {
-  source = "git@github.com:DNXLabs/terraform-aws-eks-lb-controller.git?ref=0.11.0"
+  source = "git::https://github.com/DNXLabs/terraform-aws-eks-lb-controller.git?ref=0.11.0"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

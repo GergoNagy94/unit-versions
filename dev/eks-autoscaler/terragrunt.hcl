@@ -1,9 +1,9 @@
 terraform {
-  source = "git@github.com:DNXLabs/terraform-aws-eks-cluster-autoscaler.git?ref=1.0.1"
+  source = "git::https://github.com/DNXLabs/terraform-aws-eks-cluster-autoscaler.git?ref=1.0.1"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

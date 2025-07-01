@@ -1,9 +1,9 @@
 terraform {
-  source = "git@github.com:lablabs/terraform-aws-eks-external-dns.git?ref=v2.0.0"
+  source = "git::https://github.com/lablabs/terraform-aws-eks-external-dns.git?ref=v2.0.0"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

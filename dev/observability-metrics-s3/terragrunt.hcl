@@ -1,10 +1,10 @@
 terraform {
-  source = "git.com:terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v6.0.1"
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v6.0.1"
 
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {

@@ -1,9 +1,9 @@
 terraform {
-  source = "git.com:terraform-aws-modules/terraform-aws-route53.git//modules/zones?ref=v4.1.0"
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-route53.git//modules/zones?ref=v4.1.0"
 }
 
 include "root" {
-  path = find_in_parent_folders()
+  path = find_in_parent_folders("root.hcl")
 }
 
 include "env" {
