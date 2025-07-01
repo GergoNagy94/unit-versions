@@ -1,0 +1,96 @@
+adminUser: admin
+adminPassword: admin
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        orgId: 1
+        url: http://prometheus.istio-system.svc.cluster.local
+        access: proxy
+        isDefault: true
+      - name: Loki
+        type: loki
+        uid: loki
+        access: proxy
+        orgId: 1
+        url: http://loki-read.grafana.svc.cluster.local:3100
+        basicAuth: false
+        isDefault: false
+        version: 1
+        editable: true
+        apiVersion: 1
+        jsonData:
+          derivedFields:
+          - datasourceUid: tempo
+            matcherRegex: '"traceID":"(\w+)'
+            name: TraceID
+            url: http://tempo.grafana.svc.cluster.local:3100
+      - name: Prometheus_observability
+        type: prometheus
+        uid: prometheus
+        access: proxy
+        orgId: 1
+        url: http://kube-prometheus-stack-prometheus.svc.observability:9090
+        basicAuth: false
+        isDefault: false
+        version: 1
+        editable: false
+        jsonData:
+          httpMethod: GET
+          exemplarTraceIdDestinations:
+            - datasourceUid: tempo
+              name: TraceID
+      - name: Tempo
+        type: tempo
+        uid: tempo
+        access: proxy
+        orgId: 1
+        url: http://tempo.grafana.svc.cluster.local:3100
+        basicAuth: false
+        isDefault: false
+        version: 1
+        editable: false
+        apiVersion: 1
+        jsonData:
+          httpMethod: GET
+          serviceMap:
+            datasourceUid: prometheus
+          tracesToLogs:
+            datasourceUid: loki
+            tags: [ 'job' ]
+            filterByTraceID: trace
+            filterBySpanID: false
+          lokiSearch:
+            datasourceUid: loki
+          nodeGraph:
+            enabled: true
+      - name: Alertmanager
+        type: alertmanager
+        url: http://kube-prometheus-stack-alertmanager.observability:9093
+        access: proxy
+        jsonData:
+          implementation: prometheus
+          handleGrafanaManagedAlerts: false
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+      - name: 'default'
+        orgId: 1
+        folder: ""
+        type: file
+        disableDeletion: false
+        updateIntervalSeconds: 10
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/default
+dashboards:
+  default:
+    %{ for dashboard in custom_dashboards ~}
+${indent(4, replace(replace(dashboard, ".json", ""), "./", ""))}:
+      json: |
+        ${indent(8, file("dashboards/${dashboard}"))}
+    %{ endfor }

@@ -1,0 +1,81 @@
+# Tolerate all taints so that all nodes are logged.
+tolerations:
+  - key: ""
+    operator: "Exists"
+    effect: "NoExecute"
+# Pipeline configuration.
+config:
+  # This is a config for the FluentBit application running the pipeline.
+  # We set the flush interval, log level and where our parsers are stored.
+  # We additionally expose the HTTP service so that Terraform can ping it.
+  service: |
+    [SERVICE]
+        Flush        2
+        Daemon       Off
+        Log_Level    info
+        Parsers_File parsers.conf
+        Parsers_File custom_parsers.conf
+        HTTP_Server On
+        HTTP_Listen 0.0.0.0
+        Health_Check On
+  customParsers: |   
+    [PARSER]
+        Name kube-tag
+        Format regex
+        Regex ([^.]+).([^.]+).([^.]+).([^.]+)
+    [PARSER]
+        Name         docker_no_time
+        Format       json
+        Time_Key     time
+        Time_Format  %Y-%m-%dT%H:%M:%S.%L
+        Time_Keep    Off
+        Decode_Field_As   escaped    log
+        Decode_Field_As   escaped    stream
+  # We read all of the logs for output by docker's json file logging engine.
+  # Every line appended to a file that matches the Path field will generate a record in the pipeline.
+  inputs: |
+    [INPUT]
+        Name             tail
+        Tag              application.*
+        multiline.parser docker, cri
+        Path             /var/log/containers/*service*.log
+        Skip_Long_Lines  on
+        Refresh_Interval 30
+  # Grep Filter drops logs that are only whitespace.
+  # Kubernetes Filter appends K8s information to all outgoing logs.
+  filters: |
+    [FILTER]
+        Name kubernetes
+        Match application.*
+        Merge_Log On
+        Keep_Log Off
+        K8S-Logging.Parser On
+        K8S-Logging.Exclude On
+    [FILTER]
+        Name record_modifier
+        Match *
+        Remove_key stream
+    [FILTER]
+        Name record_modifier
+        Match *
+        Remove_key _p
+    [FILTER]
+        Name record_modifier
+        Match *
+        Remove_key time
+    [FILTER]
+        Name grep
+        Match *
+        Exclude URI /metrics
+    [FILTER]
+        Name          grep
+        Match         *
+        Regex         msg ^.+$
+  # We output the logs coming out of the Kubernetes Filter to Cloudwatch.
+  outputs: |
+    [OUTPUT]
+        Name loki
+        Match *
+        Host loki-write.grafana.svc.cluster.local
+        Port 3100
+        labels job=fluentBit

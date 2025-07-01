@@ -1,0 +1,33 @@
+test:
+  enabled: false
+monitoring:
+  selfMonitoring:
+    enabled: false
+    grafanaAgent:
+      installOperator: false
+  lokiCanary:
+    enabled: false
+
+loki:
+  auth_enabled: false
+  storage:
+    bucketNames:
+      chunks: ${bucketName}
+      ruler: ${bucketName}
+      admin: ${bucketName}
+    type: s3
+    s3:
+      s3:
+      endpoint: https://s3.${region}.amazonaws.com
+      region: ${region}
+      accessKeyId: ${accessKeyId}
+      secretAccessKey: ${secretAccessKey}
+      s3ForcePathStyle: false
+      insecure: false
+  server:
+    http_listen_port: 3100
+
+# write:
+#   replicas: 2
+# read:
+#   replicas: 2

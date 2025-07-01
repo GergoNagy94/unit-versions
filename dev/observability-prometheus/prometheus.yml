@@ -1,0 +1,128 @@
+prometheusOperator:
+  tls:
+    enabled: false
+  admissionWebhooks:
+    enabled: false
+
+alertmanager:
+  enabled: true
+  config:
+    global:
+      resolve_timeout: 1m
+      slack_api_url: ${SLACK_API_URL}
+
+    route:
+      receiver: 'null'
+
+    receivers:
+      - name: 'null'
+        slack_configs:
+          - channel: ${SLACK_CHANNEL}
+            send_resolved: true
+            icon_url: https://avatars3.githubusercontent.com/u/3380462
+            title: |-
+              [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }} for {{ .CommonLabels.job }}
+              {{- if gt (len .CommonLabels) (len .GroupLabels) -}}
+                {{" "}}(
+                {{- with .CommonLabels.Remove .GroupLabels.Names }}
+                  {{- range $index, $label := .SortedPairs -}}
+                    {{ if $index }}, {{ end }}
+                    {{- $label.Name }}="{{ $label.Value -}}"
+                  {{- end }}
+                {{- end -}}
+                )
+              {{- end }}
+            text: >-
+              {{ range .Alerts -}}
+              *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+
+              *Description:* {{ .Annotations.description }}
+
+              *Details:*
+                {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+                {{ end }}
+              {{ end }}
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+    additionalScrapeConfigs:
+#      - job_name: 'my-custom-service'
+#        kubernetes_sd_configs:
+#          - role: pod
+#            namespaces:
+#              names:
+#                - dev
+#        relabel_configs:
+#          - source_labels: [ __meta_kubernetes_service_label_app ]
+#            action: keep
+#            regex: drink-service
+      - job_name: 'pods'
+        kubernetes_sd_configs:
+        - role: pod
+          namespaces:
+            names:
+              - dev
+        relabel_configs:
+          - source_labels: [ __meta_kubernetes_pod_annotation_prometheus_io_scrape ]
+            action: keep
+            regex: 'true'
+#          - source_labels: [ __meta_kubernetes_pod_annotation_prometheus_io_path ]
+#            action: replace
+#            target_label: __metrics_path__
+#            regex: (.+)
+#          - source_labels: [ __address__, __meta_kubernetes_pod_annotation_prometheus_io_port ]
+#            action: replace
+#            target_label: __address__
+#            regex: ([^:]+)(?::\d+)?;(\d+)
+#            replacement: $1:$2
+    thanos:
+      # objectStorageConfigFile: s3.yml
+       objectStorageConfig:
+          key: s3.yml
+          secret: thanos-objstore-config
+
+kubeStateMetrics:
+  enabled: true
+
+grafana:
+  enabled: false
+
+nodeExporter:
+  enabled: false
+
+thanos:
+  query:
+    enabled: true
+  queryFrontend:
+    enabled: true
+  storegateway:
+    enabled: true
+  bucketweb:
+    enabled: true
+  compact:
+    enabled: true
+    persistence:
+      enabled: true
+      accessModes: ["ReadWriteOnce"]
+      size: 50Gi
+  receive:
+    enabled: false
+  ruler:
+    enabled: false
+
+kubeApiServer:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeControllerManager:
+  enabled: false
