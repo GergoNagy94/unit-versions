@@ -1,6 +1,5 @@
 terraform {
-  source = "git::https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v6.0.1"
-
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v4.1.2"
 }
 
 include "root" {
@@ -18,5 +17,5 @@ inputs = {
   force_destroy   = include.env.locals.observability_bucket_force_destroy
   lifecycle_rules = include.env.locals.observability_bucket_lifecycle_policy
 }
-  
+
 skip = include.env.locals.skip_module.observability_traces_s3

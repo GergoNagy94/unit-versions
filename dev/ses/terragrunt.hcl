@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/cloudposse/terraform-aws-ses.git?ref=0.25.1"
+  source = "git::https://github.com/cloudposse/terraform-aws-ses.git?ref=1.0.0"
 }
 
 include "root" {

@@ -2,10 +2,12 @@ locals {
   env     = "dev"
   project = "codefactory"
   domain  = "config.hu"
-  aws_id  = "500286922458"
+  aws_id  = "500286922458" #500286922458
+  
 
   project_version = "v1.0.104"
-  iam_role        = "arn:aws:iam::${local.aws_id}:role/terragrunt"
+  iam_role        = "arn:aws:iam::${local.aws_id}:role/terragrunt" #arn:aws:iam::${local.aws_id}:role/terragrunt
+  
 
   slack_api_url = ""
   slack_channel = ""
