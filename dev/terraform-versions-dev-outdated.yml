@@ -1,0 +1,54 @@
+# Generated: 2025-07-01 15:24:51 UTC
+# Repository: unit-versions
+# Environment: dev
+# Report Type: Outdated Modules Only
+
+terraform_modules:
+
+  - unit_name: "eks-cloudwatch-logs-policy"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-policy"
+    module_type: "git"
+    current_version: "v5.48.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "fluentbit-irsa"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-role-for-service-accounts-eks"
+    module_type: "git"
+    current_version: "v5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "fluentbit-policy"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-policy"
+    module_type: "git"
+    current_version: "v5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "eks-cloudwatch-logs-irsa"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-role-for-service-accounts-eks"
+    module_type: "git"
+    current_version: "5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "irsa"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-role-for-service-accounts-eks"
+    module_type: "git"
+    current_version: "v5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "route53-zone"
+    module_name: "terraform-aws-modules/terraform-aws-route53//modules/zones"
+    module_type: "git"
+    current_version: "v4.1.0"
+    latest_version: "v5.0.0"
+    status: "outdated"
+    needs_update: true

@@ -1,0 +1,374 @@
+# Generated: 2025-07-02 06:16:11 UTC
+# Repository: unit-versions
+# Environment: dev
+# Report Type: Full Report
+
+terraform_modules:
+
+  - unit_name: "eks-cloudwatch-logs"
+    module_name: "https://github.com/cloudposse/terraform-aws-helm-release.git"
+    module_type: "git"
+    current_version: "0.10.1"
+    latest_version: "0.10.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "kms"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-kms.git"
+    module_type: "git"
+    current_version: "v3.1.1"
+    latest_version: "v3.1.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-tempo"
+    module_name: "https://github.com/cloudposse/terraform-aws-helm-release.git"
+    module_type: "git"
+    current_version: "0.10.1"
+    latest_version: "0.10.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "ec2-bastion"
+    module_name: "https://github.com/cloudposse/terraform-aws-ec2-bastion-server.git"
+    module_type: "git"
+    current_version: "0.31.1"
+    latest_version: "0.31.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "eks-autoscaler"
+    module_name: "https://github.com/DNXLabs/terraform-aws-eks-cluster-autoscaler.git"
+    module_type: "git"
+    current_version: "1.0.1"
+    latest_version: "1.0.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "route53-records"
+    module_name: "route53-zones"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "ec2-instance"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git"
+    module_type: "git"
+    current_version: "6.0.1"
+    latest_version: "6.0.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "eks-alb"
+    module_name: "https://github.com/DNXLabs/terraform-aws-eks-lb-controller.git"
+    module_type: "git"
+    current_version: "0.11.0"
+    latest_version: "0.11.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "sns"
+    module_name: "https://github.com/cloudposse/terraform-aws-sns-topic.git"
+    module_type: "git"
+    current_version: "0.21.0"
+    latest_version: "0.21.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-prometheus"
+    module_name: "https://github.com/cloudposse/terraform-aws-helm-release.git"
+    module_type: "git"
+    current_version: "0.10.1"
+    latest_version: "0.10.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "rds-aurora-experimental"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-rds-aurora.git"
+    module_type: "git"
+    current_version: "v9.15.0"
+    latest_version: "v9.15.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "iam-group"
+    module_name: "iam-groups"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-otel-collector"
+    module_name: "https://github.com/cloudposse/terraform-aws-helm-release.git"
+    module_type: "git"
+    current_version: "0.10.1"
+    latest_version: "0.10.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "redis"
+    module_name: "https://github.com/cloudposse/terraform-aws-elasticache-redis.git"
+    module_type: "git"
+    current_version: "1.4.0"
+    latest_version: "1.4.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "cloudfront"
+    module_name: "cloudfront"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "opensearch"
+    module_name: "opensearch"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "s3-bucket"
+    module_name: "s3-buckets"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "rds-aurora"
+    module_name: "https://github.com/cloudposse/terraform-aws-rds-cluster.git"
+    module_type: "git"
+    current_version: "1.7.0"
+    latest_version: "1.7.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "rds-mysql-sg"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-security-group.git"
+    module_type: "git"
+    current_version: "v5.1.1"
+    latest_version: "v5.1.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "ecr"
+    module_name: "ecr-repositories"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "eks-external-dns"
+    module_name: "https://github.com/lablabs/terraform-aws-eks-external-dns.git"
+    module_type: "git"
+    current_version: "v2.0.0"
+    latest_version: "v2.0.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-grafana"
+    module_name: "https://github.com/cloudposse/terraform-aws-helm-release.git"
+    module_type: "git"
+    current_version: "0.10.1"
+    latest_version: "0.10.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "rabbitmq"
+    module_name: "https://github.com/cloudposse/terraform-aws-mq-broker.git"
+    module_type: "git"
+    current_version: "3.1.0"
+    latest_version: "3.1.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "eks-cloudwatch-logs-policy"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-policy"
+    module_type: "git"
+    current_version: "v5.48.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "observability-traces-s3"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git"
+    module_type: "git"
+    current_version: "v6.0.1"
+    latest_version: "v6.0.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "iam-system-user"
+    module_name: "iam-system-users"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-logs-s3-user"
+    module_name: "https://github.com/cloudposse/terraform-aws-iam-s3-user.git"
+    module_type: "git"
+    current_version: "1.2.1"
+    latest_version: "1.2.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-fluentbit"
+    module_name: "https://github.com/cloudposse/terraform-aws-helm-release.git"
+    module_type: "git"
+    current_version: "0.10.1"
+    latest_version: "0.10.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "eks"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-eks.git"
+    module_type: "git"
+    current_version: "20.37.1"
+    latest_version: "20.37.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "fluentbit-irsa"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-role-for-service-accounts-eks"
+    module_type: "git"
+    current_version: "v5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "observability-metrics-s3"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git"
+    module_type: "git"
+    current_version: "v6.0.1"
+    latest_version: "v6.0.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "helm-release"
+    module_name: "helm-releases"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "eks-alb-log"
+    module_name: "https://github.com/notespacejp/terraform-aws-s3-alb-log.git"
+    module_type: "git"
+    current_version: "1.0.2"
+    latest_version: "1.0.2"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-traces-s3-user"
+    module_name: "https://github.com/cloudposse/terraform-aws-iam-s3-user.git"
+    module_type: "git"
+    current_version: "1.2.1"
+    latest_version: "1.2.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "vpc"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-vpc.git"
+    module_type: "git"
+    current_version: "v6.0.1"
+    latest_version: "v6.0.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "fluentbit-policy"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-policy"
+    module_type: "git"
+    current_version: "v5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "rds-mysql"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-rds.git"
+    module_type: "git"
+    current_version: "v6.12.0"
+    latest_version: "v6.12.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "ses"
+    module_name: "https://github.com/cloudposse/terraform-aws-ses.git"
+    module_type: "git"
+    current_version: "0.25.1"
+    latest_version: "0.25.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-logs-s3"
+    module_name: "https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git"
+    module_type: "git"
+    current_version: "v4.7.0"
+    latest_version: "v4.7.0"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "observability-metrics-s3-user"
+    module_name: "https://github.com/cloudposse/terraform-aws-iam-s3-user.git"
+    module_type: "git"
+    current_version: "1.2.1"
+    latest_version: "1.2.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "eks-cloudwatch-logs-irsa"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-role-for-service-accounts-eks"
+    module_type: "git"
+    current_version: "5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "irsa"
+    module_name: "terraform-aws-modules/terraform-aws-iam//modules/iam-role-for-service-accounts-eks"
+    module_type: "git"
+    current_version: "v5.57.0"
+    latest_version: "v5.58.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "observability-loki"
+    module_name: "https://github.com/cloudposse/terraform-aws-helm-release.git"
+    module_type: "git"
+    current_version: "0.10.1"
+    latest_version: "0.10.1"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "route53-zone"
+    module_name: "terraform-aws-modules/terraform-aws-route53//modules/zones"
+    module_type: "git"
+    current_version: "v4.1.0"
+    latest_version: "v5.0.0"
+    status: "outdated"
+    needs_update: true
+
+  - unit_name: "iam-user"
+    module_name: "iam-users"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
+
+  - unit_name: "acm"
+    module_name: "acm-certificates"
+    module_type: "local"
+    current_version: "local"
+    latest_version: "local"
+    status: "up-to-date"
+    needs_update: false
